@@ -38,19 +38,20 @@ public class StringConverterDriver
         System.out.println(breakUp(str)); // passes str to breakUp, which in turn calls pigLatinate (see below)
         System.out.println("-----------------------------");
 
-        // // Shorthand
-        // String[] shorts = new String[3];
-        // shorts[0] = "For you and me to be best friends, we must be all to each other.";
-        // shorts[1] = "You are not as funny as you think you are.";
-        // shorts[2] = "Using hand tools often belies competence.";
-        // for (String s : shorts) {
-        //     System.out.println(s);
-        //     // passes str to shorthand, which returns the converted shorthand form.
-        //     System.out.println(StringConverter.shorthand(s));
+        //     // Shorthand
+
+        //     String[] shorts = new String[3];
+        //     shorts[0] = "For you and me to be best friends, we must be all to each other.";
+        //     shorts[1] = "You are not as funny as you think you are.";
+        //     shorts[2] = "Using hand tools often belies competence.";
+        //     for (String s : shorts) {
+        //         System.out.println(s);
+        //         // passes str to shorthand, which returns the converted shorthand form.
+        //         System.out.println(StringConverter.shorthand(s));
+        //     }
+        //     System.out.println("-----------------------------");
         // }
-        // System.out.println("-----------------------------");
-        // }
- 
+
         /**
         * Recursive function that takes a sentence and breaks it into individual words,
         * passing each word on to a StringConverter method. Then it reconstructs the sentence
@@ -66,7 +67,7 @@ public class StringConverterDriver
                 }
                 return StringConverter.pigLatinate(str);
             }
-         
+
             //if multiple words, pull out first word, send rest through the recursive loop
             String topig = "";
             String punc = " ";
@@ -74,8 +75,8 @@ public class StringConverterDriver
             String punctuation = ",.;?!:#$%&*)";
             if (punctuation.contains(str.substring(i - 1, i)))
             {
-                topig = str.substring(0, i - 1);
-                punc = str.substring(i - 1);
+                    topig = str.substring(0, i - 1);
+                    punc = str.substring(i - 1);
             }
             else
             {
@@ -85,4 +86,4 @@ public class StringConverterDriver
             return StringConverter.pigLatinate(topig) + punc + breakUp(str);
         }
     }
-
+}

@@ -37,20 +37,28 @@ public class StringConverter
         }
     }
     public static String pigLatinate(String englishWord) {
+        int vowel = -1;
+        for (int i = 0; i < englishWord.length(); i++) {
+            // if englishWord has a vowel, return the index
+            if (englishWord.charAt(i) == 'a' || englishWord.charAt(i) == 'e' || englishWord.charAt(i) == 'i' || englishWord.charAt(i) == 'o' || englishWord.charAt(i) == 'u' || englishWord.charAt(i) == 'A' || englishWord.charAt(i) == 'E' || englishWord.charAt(i) == 'I' || englishWord.charAt(i) == 'O' || englishWord.charAt(i) == 'U') {
+                break;
+            }
+            vowel = i;
+        }
         // if englishWord has no vowels, return englishWord + "ay"
-        if (checkVowel(englishWord) < 0) {
+        if (vowel < 0) {
             return englishWord + "ay";
         }
         // else if englishWord begins with a vowel, return englishWord + "yay"
-        else if (checkVowel(englishWord) == 0) {
+        else if (vowel == 0) {
             return englishWord + "yay";
         }
         // else if englishWord has a vowel in it and yet doesn't start with a vowel, return end + start + "ay"
         else {
             // Let start be all of englishWord up to (but not including) its first vowel.
-            String start = englishWord.substring(0, checkVowel(englishWord));
+            String start = englishWord.substring(0, vowel);
             // Let end be all of englishWord from its first vowel on
-            String end = englishWord.substring(checkVowel(englishWord));
+            String end = englishWord.substring(vowel);
             // Convert string to array of characters to check capitalization
             char[] charArray = englishWord.toCharArray();
             for (int i = 0; i < charArray.length; i++) {
@@ -61,13 +69,13 @@ public class StringConverter
             return end + start + "ay";
         }
     }
-    public static int checkVowel(String englishWord) {
-        for (int i = 0; i < englishWord.length(); i++) {
-            // if englishWord has a vowel, return true
-            if ((englishWord.charAt(i) == 'a') || (englishWord.charAt(i)) == 'e') || (englishWord.charAt(i)) == 'i') || (englishWord.charAt(i)) == 'o') || (englishWord.charAt(i)) == 'u') || (englishWord.charAt(i)) == 'A') || (englishWord.charAt(i)) == 'E') || (englishWord.charAt(i)) == 'I') || (englishWord.charAt(i)) == 'O') || (englishWord.charAt(i)) == 'U')) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    // public static int checkVowel(String englishWord) {
+    //     for (int i = 0; i < englishWord.length(); i++) {
+    //         // if englishWord has a vowel, return the index
+    //         if ((englishWord.charAt(i) == 'a') || (englishWord.charAt(i)) == 'e') || (englishWord.charAt(i)) == 'i') || (englishWord.charAt(i)) == 'o') || (englishWord.charAt(i)) == 'u') || (englishWord.charAt(i)) == 'A') || (englishWord.charAt(i)) == 'E') || (englishWord.charAt(i)) == 'I') || (englishWord.charAt(i)) == 'O') || (englishWord.charAt(i)) == 'U')) {
+    //             return i;
+    //         }
+    //     }
+    //     return -1;
+    // }
 }

@@ -1,4 +1,5 @@
-// by Kate Li
+// StringConverter.java by Kate Li
+
 import java.lang.*;
 import java.io.*;
 import java.util.*;
@@ -13,6 +14,7 @@ public class StringConverter
         for (int i = 0; i < strAsByteArray.length; i++) {
             result[i] = strAsByteArray[strAsByteArray.length - i - 1];
         }
+        // change result into String and return
         return new String(result);
     }
 
@@ -26,7 +28,7 @@ public class StringConverter
         for (int i = 0; i < strAsByteArray.length; i++) {
             result[i] = strAsByteArray[strAsByteArray.length - i - 1];
         }
-        // check if original string is same as reversed string
+        // check if original string is same as reversed string for palindrome
         if (str.equals(new String(result))) {
             return true;
         }
